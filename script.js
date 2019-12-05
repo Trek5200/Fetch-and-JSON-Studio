@@ -2,10 +2,14 @@ window.addEventListener("load", function(){
     fetch("https://handlers.education.launchcode.org/static/astronauts.json").then(function(response){
       response.json().then( function(json) {
         
+        let astronautCount = json.length;
+
         json.sort(function(a,b){return b.hoursInSpace - a.hoursInSpace})
 
         const container = document.getElementById("container");
-                              
+        
+        container.innerHTML = `<div>There are ${astronautCount} astronauts</div>`
+
         for(let i=0; i<json.length; i++){
           
           let textColor="color:Black";
